@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interitance & Prototype</title>
+</head>
+<body>
+    <h1>Interitance & Prototype</h1>
+
+    <h3>Q1.Create 2 objects - parent and child. 
+        Attach methods to parent and use those methods in child object using parents prototype</h3>
+        <pre>
+            const parent = {
+                fname : "GOOD",
+                lname : "MORNING",
+                fullname : function abc(){
+                    console.log(this.fname+" "+this.lname);
+                }
+            }
+            
+            const child = {
+                __proto__: parent
+            }
+            
+            child.fullname();
+        </pre>
+        <br>
+        <hr>
+    <h3>Q2.Write code to explain prototype chaining</h3>  
+    <pre>
+        const obj1 = {
+            name: "GOOD"
+        }
+        const obj2 ={
+            __proto__: obj1,
+            lname : "MORNING",
+        }
+        const obj3 ={
+            __proto__:obj2,
+            date: "8",
+        }
+        
+        console.log(obj3.name)
+        console.log(obj3.lname)
+        console.log(obj3.date)
+    </pre>
+    <br>
+    <hr>
+    <h3>Q3.Add a method to calculate sum of all elements in Array in array's protype, 
+        use that method to calculate sum for multiple arrays</h3>
+        <pre>
+            const Add ={
+                sum : function(arr){
+                    let result = 0;
+                    for(let i=0 ; i &lt arr.length ; i++){
+                        result += arr[i];
+                    }
+                    console.log(result);
+                }
+            }
+            Add.sum([1,2,3,4,5,6])
+        </pre>
+    <br>
+    <hr>
+    <h3>Q4.Write a JavaScript function to retrieve all the names of object's own and inherited properties.</h3>
+    <pre>
+        function first(obj) {
+            if (!second(obj)) return [];
+            var keys = [];
+            for (var key in obj) keys.push(key);
+            return keys;
+        }
+        function second(obj) 
+        {
+            var type = typeof obj;
+            return type === 'function' || type === 'object' && !!obj;
+          }
+        function Student(name) {
+          this.name = name;
+        }
+        Student.prototype.rollno = true;
+        console.log(first(new Student("ABHI")));
+    </pre>
+    <script src="./index.js"></script>
+</body>
+</html>
